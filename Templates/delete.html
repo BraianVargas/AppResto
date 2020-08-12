@@ -1,0 +1,47 @@
+{% extends "base_template2.html" %}
+{% block title %} Ingreso {% endblock %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleDelete.css') }}">
+</head>
+
+<body>
+    <br>
+    <br>
+    <form method="POST" action="{{url_for('deleteUoP')}}">
+        <h1>Eliminar</h1>
+        <br>
+        <label for="INombre">Nombre de Producto o Usuario:</label>
+        <input type="text" name="Name" id="INombre">
+        <span class="icon icon-search"></span>
+        <input type="submit" value="Buscar">
+        <br>
+        <br>
+        <div>
+            {% if product %}
+            <ul>
+                <li style="list-style: none;">
+                    <label style="width: 50%; margin-left: 10%;">
+                        Nombre de Producto: {{product.Nombre}}
+                    </label>
+                    <a href="{{ url_for('eraseP',nom=product.Nombre) }}"> <span class="icon-del"></span></a>
+                </li>
+            </ul>
+            {% elif usuario %}
+            <ul>
+                <li style="list-style: none;">
+                    <label style="width: 50%; margin-left: 10%;">
+                        DNI de Usuario: {{usuario.DNI}}
+                        <br>
+                        Tipo de Usuario: {{usuario.Tipo}}
+                    </label>
+                    <a href="{{ url_for('eraseU',nom=usuario.DNI) }}"> <span class="icon-del"></span></a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+
+    </form>
+</body>
+{% endblock %}

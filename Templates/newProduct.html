@@ -1,0 +1,15 @@
+{% extends "base_template2.html" %}
+{% block title %} Ingreso {% endblock %}
+{% block content %}
+<form method="POST" action="{{url_for('newProduct')}}">
+    <h1>Nuevo Producto</h1>
+    <br>
+    <label for="Name">Nombre de Producto: </label>
+    <input type="text" name="Name" id="INombre">
+    <br>
+    <label for="Precio">Precio Unitario</label>
+    <input type="text" name="Precio" id="IPrecio">
+    <br>
+    <input type="submit" value="Guardar Datos">
+</form>
+{% endblock %}

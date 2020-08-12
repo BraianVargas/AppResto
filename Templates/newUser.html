@@ -1,0 +1,18 @@
+{% extends "base_template2.html" %}
+{% block title %} Ingreso {% endblock %}
+{% block content %}
+<form method="POST" action="{{url_for('newUser')}}">
+    <h1>Nuevo Usuario</h1>
+    <br>
+    <label for="Usuario">Usuario</label>
+    <input type="text" name="Usuario" id="IUser">
+    <br>
+    <label for="Password">Contraseña</label>
+    <input type="text" name="Password" id="IPassword">
+    <br>
+    <label for="Tipo">Tipo</label>
+    <input type="text" name="Tipo" id="ITipo">
+    <br>
+    <input type="submit" value="Guardar Datos">
+</form>
+{% endblock %}
